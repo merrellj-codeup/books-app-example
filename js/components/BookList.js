@@ -1,5 +1,5 @@
 import Book from "./Book.js";
-import BooksAPI from "./api/books-api-class.js";
+import BooksAPI from "../api/books-api-class.js";
 
 class BookList {
 	constructor(books, target) {

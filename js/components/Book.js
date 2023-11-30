@@ -1,4 +1,4 @@
-import BooksAPI from "./api/books-api-class.js";
+import BooksAPI from "../api/books-api-class.js";
 
 class Book {
 	constructor(book, target, booksAPI, bookList) {
