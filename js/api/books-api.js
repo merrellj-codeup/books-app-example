@@ -1,3 +1,7 @@
+/**
+ * Gets all books from the JSON-server API
+ * @returns {Promise<Array>} Promise that resolves to an array of books
+ */
 export const getBooks = async () => {
 	const url = "http://localhost:3000/books";
 	const options = {
@@ -11,6 +15,11 @@ export const getBooks = async () => {
 	return data;
 };
 
+/**
+ *  Gets a book from the JSON-server API
+ * @param {number} id - The id of the book to get
+ * @returns {Promise<Object>} Promise that resolves to a book object
+ */
 export const getBook = async (id) => {
 	const url = `http://localhost:3000/books/${id}`;
 	const options = {
@@ -24,6 +33,11 @@ export const getBook = async (id) => {
 	return data;
 };
 
+/**
+ * Deletes a book from the JSON-server API
+ * @param {number} id - The id of the book to delete
+ * @returns {Promise<Object>} Promise that resolves to the deleted book object
+ */
 export const deleteBook = async (id) => {
 	const url = `http://localhost:3000/books/${id}`;
 	const options = {
@@ -37,6 +51,17 @@ export const deleteBook = async (id) => {
 	return data;
 };
 
+/**
+ * Posts a new book to the JSON-server API
+ * @param {Object} book - The book object to post
+ * @param {string} book.ISBN - The ISBN of the book
+ * @param {number} book.authorId - The id of the author of the book
+ * @param {string} book.genre - The genre of the book
+ * @param {number} book.publishedYear - The year the book was published
+ * @param {string} book.summary - The summary of the book
+ * @param {string} book.title - The title of the book
+ * @returns {Promise<Object>} Promise that resolves to the posted book object
+ */
 export const postBook = async ({ ISBN, authorId, genre, publishedYear, summary, title }) => {
 	const newBook = {
 		ISBN,
@@ -61,6 +86,18 @@ export const postBook = async ({ ISBN, authorId, genre, publishedYear, summary, 
 	return data;
 };
 
+/**
+ * Patches a book in the JSON-server API
+ * @param {Object} book - The book object to patch
+ * @param {number} book.id - The id of the book to patch
+ * @param {string} book.ISBN - The ISBN of the book
+ * @param {number} book.authorId - The id of the author of the book
+ * @param {string} book.genre - The genre of the book
+ * @param {number} book.publishedYear - The year the book was published
+ * @param {string} book.summary - The summary of the book
+ * @param {string} book.title - The title of the book
+ * @returns {Promise<Object>} Promise that resolves to the patched book object
+ */
 export const patchBook = async (book) => {
 	const newBook = {
 		...book,
@@ -80,6 +117,10 @@ export const patchBook = async (book) => {
 	return data;
 };
 
+/**
+ * Gets all authors from the JSON-server API
+ * @returns {Promise<Array>} Promise that resolves to an array of authors
+ */
 export const getAuthors = async () => {
 	const url = "http://localhost:3000/authors";
 	const options = {
@@ -93,6 +134,11 @@ export const getAuthors = async () => {
 	return data;
 };
 
+/**
+ * Gets an author from the JSON-server API
+ * @param {number} id - The id of the author to get
+ * @returns {Promise<Object>} Promise that resolves to an author object
+ */
 export const getAuthor = async (id) => {
 	const url = `http://localhost:3000/authors/${id}`;
 	const options = {
@@ -106,6 +152,11 @@ export const getAuthor = async (id) => {
 	return data;
 };
 
+/**
+ * Deletes an author from the JSON-server API
+ * @param {number} id - The id of the author to delete
+ * @returns {Promise<Object>} Promise that resolves to the deleted author object
+ */
 export const deleteAuthor = async (id) => {
 	const url = `http://localhost:3000/authors/${id}`;
 	const options = {
