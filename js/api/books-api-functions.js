@@ -14,7 +14,6 @@ export const getBooks = async () => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  *  Gets a book from the JSON-server API
  * @param {number} id - The id of the book to get
@@ -32,7 +31,6 @@ export const getBook = async (id) => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Deletes a book from the JSON-server API
  * @param {number} id - The id of the book to delete
@@ -50,7 +48,6 @@ export const deleteBook = async (id) => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Posts a new book to the JSON-server API
  * @param {Object} book - The book object to post
@@ -85,7 +82,6 @@ export const postBook = async ({ ISBN, authorId, genre, publishedYear, summary, 
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Patches a book in the JSON-server API
  * @param {Object} book - The book object to patch
@@ -116,7 +112,6 @@ export const patchBook = async (book) => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Gets all authors from the JSON-server API
  * @returns {Promise<Array>} Promise that resolves to an array of authors
@@ -133,7 +128,6 @@ export const getAuthors = async () => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Gets an author from the JSON-server API
  * @param {number} id - The id of the author to get
@@ -151,7 +145,6 @@ export const getAuthor = async (id) => {
 	const data = await response.json();
 	return data;
 };
-
 /**
  * Deletes an author from the JSON-server API
  * @param {number} id - The id of the author to delete
@@ -169,7 +162,6 @@ export const deleteAuthor = async (id) => {
 	const data = await response.json();
 	return data;
 };
-
 export const postAuthor = async ({ name, birthYear, deathYear, nationality }) => {
 	const newAuthor = {
 		name,
@@ -191,7 +183,6 @@ export const postAuthor = async ({ name, birthYear, deathYear, nationality }) =>
 	const data = await response.json();
 	return data;
 };
-
 export const patchAuthor = async (author) => {
 	const newAuthor = {
 		...author,
@@ -210,7 +201,6 @@ export const patchAuthor = async (author) => {
 	const data = await response.json();
 	return data;
 };
-
 export const getBooksAndAuthors = async () => {
 	const books = await getBooks();
 	const booksAndAuthors = books.map(async (book) => {
@@ -222,7 +212,6 @@ export const getBooksAndAuthors = async () => {
 	});
 	return booksAndAuthors;
 };
-
 export const getBookAndAuthor = async (id) => {
 	const book = await getBook(id);
 	const author = await getAuthor(book.authorId);

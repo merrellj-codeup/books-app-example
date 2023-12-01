@@ -1,8 +1,12 @@
 class BooksAPI {
 	constructor() {
 		this.base = "http://localhost:3000";
+		this.books = []; // empty when instantiated, but used as a cache later
 	}
 	async getBooks() {
+		if (this.books.length > 0) {
+			return this.books;
+		}
 		const url = `${this.base}/books/`;
 		const options = {
 			method: "GET",
@@ -12,6 +16,7 @@ class BooksAPI {
 		};
 		const response = await fetch(url, options);
 		const data = await response.json();
+		this.books = data;
 		return data;
 	}
 	async getBook(id) {
